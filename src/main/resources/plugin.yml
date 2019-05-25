@@ -1,0 +1,8 @@
+name: Teleport
+version: ${project.version}
+main: org.meowcat.teleport.Main
+api-version: 1.14.1
+prefix: Teleport
+authors: [MlgmXyysd]
+description: Teleport
+website: http://www.meowcat.org/
