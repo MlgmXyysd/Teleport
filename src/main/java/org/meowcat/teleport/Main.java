@@ -17,15 +17,15 @@ public final class Main extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        Bukkit.getConsoleSender().sendMessage("Teleport by MeowCat Studio");
-        Bukkit.getConsoleSender().sendMessage("Official Website http://www.meowcat.org/");
+        Bukkit.getConsoleSender().sendMessage("[Teleport] Teleport by MeowCat Studio");
+        Bukkit.getConsoleSender().sendMessage("[Teleport] Official Website http://www.meowcat.org/");
         Bukkit.getConsoleSender().sendMessage("[Teleport] Plugin enabled.");
     }
 
     @Override
     public void onDisable() {
-        Bukkit.getConsoleSender().sendMessage("Teleport by MeowCat Studio");
-        Bukkit.getConsoleSender().sendMessage("Official Website http://www.meowcat.org/");
+        Bukkit.getConsoleSender().sendMessage("[Teleport] Teleport by MeowCat Studio");
+        Bukkit.getConsoleSender().sendMessage("[Teleport] Official Website http://www.meowcat.org/");
         Bukkit.getConsoleSender().sendMessage("[Teleport] Plugin disabled.");
     }
 

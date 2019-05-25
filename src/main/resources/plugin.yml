@@ -1,7 +1,7 @@
 name: Teleport
 version: ${project.version}
 main: org.meowcat.teleport.Main
-api-version: 1.14.1
+api-version: 1.14
 prefix: Teleport
 authors: [MlgmXyysd]
 description: Teleport
