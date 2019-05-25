@@ -6,3 +6,22 @@ prefix: Teleport
 authors: [MlgmXyysd]
 description: Teleport
 website: http://www.meowcat.org/
+commands:
+  tpa:
+    usage:
+      §c/tpa <player> Send teleport request to player.
+  tpyes:
+    usage:
+      §c/tpyes Accept teleport request.
+  tpaccept:
+    usage:
+      §c/tpaccept Accept teleport request.
+  tpno:
+    usage:
+      §c/tpno Deny teleport request.
+  tpdeny:
+    usage:
+      §c/tpdeny Deny teleport request.
+  tpcancel:
+    usage:
+      §c/tpcancel Cancel teleport request.
