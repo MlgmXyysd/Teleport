@@ -36,24 +36,24 @@ public final class Main extends JavaPlugin {
             case "tpa":
                 if (sender instanceof Player) {
                     if (args.length == 0) {
-                        sender.sendMessage("\u00a7cYou must select a player to teleport.");
+                        sender.sendMessage("§cYou must select a player to teleport.");
                     } else {
                         if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(args[0]))) {
                             Player playerA = (Player) sender;
                             Player playerB = Bukkit.getPlayer(args[0]);
-                            Objects.requireNonNull(playerB).sendMessage("\u00a76Player \u00a7c" + playerA.getDisplayName() + "\u00a76 has requested to teleport to you.");
-                            Objects.requireNonNull(playerB).sendMessage("\u00a76To accept this request, type \u00a7c/tpaccept\u00a76 or \u00a7c/tpyes\u00a76.");
-                            Objects.requireNonNull(playerB).sendMessage("\u00a76To deny this request, type \u00a7c/tpdeny\u00a76 or \u00a7c/tpno\u00a76.");
-                            playerA.sendMessage("\u00a76A teleport request is sent to \u00a7c" + playerB.getDisplayName() + "\u00a76.");
-                            playerA.sendMessage("\u00a76To cancel this request, type \u00a7c/tpcancel\u00a76.");
+                            Objects.requireNonNull(playerB).sendMessage("§6Player §c" + playerA.getDisplayName() + "§6 has requested to teleport to you.");
+                            Objects.requireNonNull(playerB).sendMessage("§6To accept this request, type §c/tpaccept§6 or §c/tpyes§6.");
+                            Objects.requireNonNull(playerB).sendMessage("§6To deny this request, type §c/tpdeny§6 or §c/tpno§6.");
+                            playerA.sendMessage("§6A teleport request is sent to §c" + playerB.getDisplayName() + "§6.");
+                            playerA.sendMessage("§6To cancel this request, type §c/tpcancel§6.");
                             status = new PlayerStatus(playerA, playerB, System.currentTimeMillis() + 60000, true);
                             playerStatus.put(playerB.getDisplayName(), status);
                         } else {
-                            sender.sendMessage("\u00a7cPlayer not online or not found.");
+                            sender.sendMessage("§cPlayer not online or not found.");
                         }
                     }
                 } else {
-                    sender.sendMessage("\u00a7cAn error has occurred, so you can't send teleport request.");
+                    sender.sendMessage("§cAn error has occurred, so you can't send teleport request.");
                 }
                 break;
             case "tpaccept":
@@ -65,14 +65,14 @@ public final class Main extends JavaPlugin {
                             if (status.getTpSender().isOnline()) {
                                 status.getTpSender().teleport(((Player) sender).getLocation());
                                 status.setSend(false);
-                                status.getTpSender().sendMessage("\u00a7c" + ((Player) sender).getDisplayName() + "\u00a76 accepted your teleport request.");
-                                sender.sendMessage("\u00a76Teleport request accepted.");
+                                status.getTpSender().sendMessage("§c" + ((Player) sender).getDisplayName() + "§6 accepted your teleport request.");
+                                sender.sendMessage("§6Teleport request accepted.");
                             } else {
-                                sender.sendMessage("\u00a7cPlayer not online or not found.");
+                                sender.sendMessage("§cPlayer not online or not found.");
                             }
                         } else {
                             status.setSend(false);
-                            sender.sendMessage("\u00a7cTeleport request expired.");
+                            sender.sendMessage("§cTeleport request expired.");
                         }
                     } else {
                         sendNotPending(sender);
@@ -87,12 +87,12 @@ public final class Main extends JavaPlugin {
                     status = playerStatus.get(sender.getName());
                     if (status.isSend()) {
                         if (status.getExpiredTime() < System.currentTimeMillis()) {
-                            status.getTpSender().sendMessage("\u00a7c" + ((Player) sender).getDisplayName() + "\u00a76 denied your teleport request.");
+                            status.getTpSender().sendMessage("§c" + ((Player) sender).getDisplayName() + "§6 denied your teleport request.");
                             status.setSend(false);
-                            sender.sendMessage("\u00a76Teleport request denied.");
+                            sender.sendMessage("§6Teleport request denied.");
                         } else {
                             status.setSend(false);
-                            sender.sendMessage("\u00a7cTeleport request expired.");
+                            sender.sendMessage("§cTeleport request expired.");
                         }
                     } else {
                         sendNotPending(sender);
@@ -108,12 +108,12 @@ public final class Main extends JavaPlugin {
                         if (status.getExpiredTime() < System.currentTimeMillis()) {
                             status.setSend(false);
                             if (status.getTpReceiver().isOnline()) {
-                                status.getTpReceiver().sendMessage("\u00a76Teleport request canceled by sender.");
+                                status.getTpReceiver().sendMessage("§6Teleport request canceled by sender.");
                             }
-                            sender.sendMessage("\u00a76Teleport request canceled.");
+                            sender.sendMessage("§6Teleport request canceled.");
                         } else {
                             status.setSend(false);
-                            sender.sendMessage("\u00a7cTeleport request expired.");
+                            sender.sendMessage("§cTeleport request expired.");
                         }
                     } else {
                         sendNotPending(sender);
@@ -127,7 +127,7 @@ public final class Main extends JavaPlugin {
     }
 
     private void sendNotPending(CommandSender sender) {
-        sender.sendMessage("\u00a7cYou do not have a pending request.");
+        sender.sendMessage("§cYou do not have a pending request.");
     }
 
 //    @Override
