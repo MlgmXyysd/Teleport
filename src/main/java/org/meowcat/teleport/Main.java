@@ -6,14 +6,13 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
+import java.util.stream.Collectors;
 
-@SuppressWarnings("deprecation")
+@SuppressWarnings({"deprecation", "SuspiciousMethodCalls"})
 public final class Main extends JavaPlugin {
 
-    private Map<String, PlayerStatus> playerStatus = new HashMap<>();
+    private Map<Player, Player> playerStatus = new HashMap<>();
 
     @Override
     public void onEnable() {
@@ -31,114 +30,125 @@ public final class Main extends JavaPlugin {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        PlayerStatus status;
+        Player status;
         switch (label) {
             case "tpa":
                 if (sender instanceof Player) {
                     if (args.length == 0) {
                         sender.sendMessage("§cYou must select a player to teleport.");
                     } else {
-                        if (Bukkit.getOnlinePlayers().contains(Bukkit.getPlayer(args[0]))) {
-                            Player playerA = (Player) sender;
-                            Player playerB = Bukkit.getPlayer(args[0]);
-                            Objects.requireNonNull(playerB).sendMessage("§6Player §c" + playerA.getDisplayName() + "§6 has requested to teleport to you.");
-                            Objects.requireNonNull(playerB).sendMessage("§6To accept this request, type §c/tpaccept§6 or §c/tpyes§6.");
-                            Objects.requireNonNull(playerB).sendMessage("§6To deny this request, type §c/tpdeny§6 or §c/tpno§6.");
-                            playerA.sendMessage("§6A teleport request is sent to §c" + playerB.getDisplayName() + "§6.");
-                            playerA.sendMessage("§6To cancel this request, type §c/tpcancel§6.");
-                            status = new PlayerStatus(playerA, playerB, System.currentTimeMillis() + 60000, true);
-                            playerStatus.put(playerB.getDisplayName(), status);
+                        Player playerA = (Player) sender;
+                        Player playerB = Bukkit.getPlayer(args[0]);
+                        if (playerA.equals(playerB)) {
+                            sender.sendMessage("§cYou can't teleport to yourself.");
                         } else {
-                            sender.sendMessage("§cPlayer not online or not found.");
+                            if (Bukkit.getOnlinePlayers().contains(playerB)) {
+                                Objects.requireNonNull(playerB).sendMessage("§6Player §c" + playerA.getDisplayName() + "§6 has requested to teleport to you.");
+                                Objects.requireNonNull(playerB).sendMessage("§6To accept this request, type §c/tpaccept§6 or §c/tpyes§6.");
+                                Objects.requireNonNull(playerB).sendMessage("§6To deny this request, type §c/tpdeny§6 or §c/tpno§6.");
+                                playerA.sendMessage("§6A teleport request is sent to §c" + playerB.getDisplayName() + "§6.");
+                                playerA.sendMessage("§6To cancel this request, type §c/tpcancel§6.");
+                                playerStatus.put(playerB, playerA);
+                                getServer().getScheduler().scheduleSyncDelayedTask(this, () -> expireRequest(playerB), 60000);
+                            } else {
+                                sender.sendMessage("§cPlayer not online or not found.");
+                            }
                         }
                     }
                 } else {
-                    sender.sendMessage("§cAn error has occurred, so you can't send teleport request.");
+                    sender.sendMessage("§cYou only can teleport as a player.");
                 }
                 break;
             case "tpaccept":
             case "tpyes":
-                if (playerStatus.containsKey(sender.getName())) {
-                    status = playerStatus.get(sender.getName());
-                    if (status.isSend()) {
-                        if (status.getExpiredTime() < System.currentTimeMillis()) {
-                            if (status.getTpSender().isOnline()) {
-                                status.getTpSender().teleport(((Player) sender).getLocation());
-                                status.setSend(false);
-                                status.getTpSender().sendMessage("§c" + ((Player) sender).getDisplayName() + "§6 accepted your teleport request.");
-                                sender.sendMessage("§6Teleport request accepted.");
-                            } else {
-                                sender.sendMessage("§cPlayer not online or not found.");
-                            }
-                        } else {
-                            status.setSend(false);
-                            sender.sendMessage("§cTeleport request expired.");
-                        }
+                if (playerStatus.containsKey(sender)) {
+                    status = playerStatus.get(sender);
+                    if (status.isOnline()) {
+                        status.teleport(((Player) sender).getLocation());
+                        status.sendMessage("§c" + ((Player) sender).getDisplayName() + "§6 accepted your teleport request.");
+                        sender.sendMessage("§6Teleport request accepted.");
                     } else {
-                        sendNotPending(sender);
+                        sender.sendMessage("§cPlayer not online or not found.");
                     }
+                    playerStatus.remove(sender);
                 } else {
-                    sendNotPending(sender);
+                    sender.sendMessage("§cYou do not have a pending request.");
                 }
                 break;
             case "tpdeny":
             case "tpno":
-                if (playerStatus.containsKey(sender.getName())) {
-                    status = playerStatus.get(sender.getName());
-                    if (status.isSend()) {
-                        if (status.getExpiredTime() < System.currentTimeMillis()) {
-                            status.getTpSender().sendMessage("§c" + ((Player) sender).getDisplayName() + "§6 denied your teleport request.");
-                            status.setSend(false);
-                            sender.sendMessage("§6Teleport request denied.");
-                        } else {
-                            status.setSend(false);
-                            sender.sendMessage("§cTeleport request expired.");
-                        }
+                if (playerStatus.containsKey(sender)) {
+                    status = playerStatus.get(sender);
+                    if (status.isOnline()) {
+                        status.sendMessage("§c" + ((Player) sender).getDisplayName() + "§6 denied your teleport request.");
+                        sender.sendMessage("§6Teleport request denied.");
                     } else {
-                        sendNotPending(sender);
+                        sender.sendMessage("§cPlayer not online or not found.");
                     }
+                    playerStatus.remove(sender);
                 } else {
-                    sendNotPending(sender);
+                    sender.sendMessage("§cYou do not have a pending request.");
                 }
                 break;
             case "tpcancel":
-                if (playerStatus.containsKey(sender.getName())) {
-                    status = playerStatus.get(sender.getName());
-                    if (status.isSend()) {
-                        if (status.getExpiredTime() < System.currentTimeMillis()) {
-                            status.setSend(false);
-                            if (status.getTpReceiver().isOnline()) {
-                                status.getTpReceiver().sendMessage("§6Teleport request canceled by sender.");
-                            }
-                            sender.sendMessage("§6Teleport request canceled.");
-                        } else {
-                            status.setSend(false);
-                            sender.sendMessage("§cTeleport request expired.");
-                        }
+                if (sender instanceof Player) {
+                    if (args.length == 0) {
+                        sender.sendMessage("§cYou must select a player to cancel teleport request.");
                     } else {
-                        sendNotPending(sender);
+                        Player player = Bukkit.getPlayer(args[0]);
+                        if (playerStatus.containsKey(player)) {
+                            status = playerStatus.get(player);
+                            if (status.equals(player)) {
+                                player.sendMessage("§6Teleport request canceled by sender.");
+                                sender.sendMessage("§6Teleport request canceled.");
+                                playerStatus.remove(player);
+                            } else {
+                                sender.sendMessage("§cYou do not have a pending request for this player.");
+                            }
+                        } else {
+                            sender.sendMessage("§cYou do not have a pending request for this player.");
+                        }
                     }
                 } else {
-                    sendNotPending(sender);
+                    sender.sendMessage("§cYou only can cancel teleport request as a player.");
                 }
                 break;
         }
         return true;
     }
 
-    private void sendNotPending(CommandSender sender) {
-        sender.sendMessage("§cYou do not have a pending request.");
+    @Override
+    public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+        Collection playerCollection = Bukkit.getOnlinePlayers();
+        List<String> playerList = new ArrayList<>();
+        for (Object o : playerCollection) {
+            playerList.add(((Player) o).getDisplayName());
+        }
+        if (args.length > 1) {
+            return new ArrayList<>();
+        }
+        if (args.length == 0) {
+            return playerList;
+        }
+        String[] players = new String[playerList.size()];
+        playerList.toArray(players);
+        return Arrays.stream(players).filter(s -> s.startsWith(args[0])).collect(Collectors.toList());
     }
 
-//    @Override
-//    public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
-//        //如果不是能够补全的长度，则返回空列表
-//        if (args.length > 1) return new ArrayList<>();
-//
-//        //如果此时仅输入了命令"sub"，则直接返回所有的子命令
-//        if (args.length == 0) return Arrays.asList(subCommands);
-//
-//        //筛选所有可能的补全列表，并返回
-//        return Arrays.stream(subCommands).filter(s -> s.startsWith(args[0])).collect(Collectors.toList());
-//    }
+    private void expireRequest(Player key) {
+        if (playerStatus.containsKey(key)) {
+            Player sender = playerStatus.get(key);
+            if (key != null) {
+                if (Bukkit.getOnlinePlayers().contains(key)) {
+                    key.sendMessage("§cTeleport request expired.");
+                }
+            }
+            if (sender != null) {
+                if (Bukkit.getOnlinePlayers().contains(sender)) {
+                    sender.sendMessage("§cTeleport request expired.");
+                }
+            }
+            playerStatus.remove(key);
+        }
+    }
 }
