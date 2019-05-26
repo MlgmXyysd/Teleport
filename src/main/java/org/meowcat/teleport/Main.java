@@ -1,9 +1,12 @@
 package org.meowcat.teleport;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.*;
@@ -111,6 +114,32 @@ public final class Main extends JavaPlugin {
                     }
                 } else {
                     sender.sendMessage("§cYou only can cancel teleport request as a player.");
+                }
+                break;
+            case "hat":
+                if (sender instanceof Player) {
+                    Player player = (Player) sender;
+                    PlayerInventory playerInv = player.getInventory();
+                    ItemStack playerHand = player.getItemInHand();
+                    ItemStack playerHelmet = playerInv.getHelmet();
+                    ItemStack air = new ItemStack(Material.AIR);
+                    if (playerHand.getType() == Material.AIR) {
+                        playerInv.setHelmet(air);
+                        player.setItemInHand(playerHelmet);
+                        player.updateInventory();
+                        player.sendMessage("§6Your hat has been removed.");
+                    } else {
+                        if (playerHand.getAmount() == 1) {
+                            playerInv.setHelmet(playerHand);
+                            player.setItemInHand(playerHelmet);
+                            player.updateInventory();
+                            player.sendMessage("§6Enjoy your new hat.");
+                        } else {
+                            player.sendMessage("§cYour item stack amount must be 1, otherwise they will be lost.");
+                        }
+                    }
+                } else {
+                    sender.sendMessage("§cYou only can put item on your head as a player.");
                 }
                 break;
         }

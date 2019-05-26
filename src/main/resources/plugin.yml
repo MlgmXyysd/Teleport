@@ -25,3 +25,6 @@ commands:
   tpcancel:
     usage:
       §cCancel teleport request.
+  hat:
+    usage:
+      §cPut item on your hat.
