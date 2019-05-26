@@ -124,19 +124,23 @@ public final class Main extends JavaPlugin {
                     ItemStack playerHelmet = playerInv.getHelmet();
                     ItemStack air = new ItemStack(Material.AIR);
                     if (playerHand.getType() == Material.AIR) {
-                        playerInv.setHelmet(air);
+                        if (playerHelmet == null) {
+                            player.sendMessage("§cThere's nothing on your head or hand..");
+                        } else {
+                            if (playerHelmet.getType() == Material.AIR) {
+                                player.sendMessage("§cThere's nothing on your head or hand..");
+                            } else {
+                                playerInv.setHelmet(air);
+                                player.setItemInHand(playerHelmet);
+                                player.updateInventory();
+                                player.sendMessage("§6Your hat has been removed.");
+                            }
+                        }
+                    } else {
+                        playerInv.setHelmet(playerHand);
                         player.setItemInHand(playerHelmet);
                         player.updateInventory();
-                        player.sendMessage("§6Your hat has been removed.");
-                    } else {
-                        if (playerHand.getAmount() == 1) {
-                            playerInv.setHelmet(playerHand);
-                            player.setItemInHand(playerHelmet);
-                            player.updateInventory();
-                            player.sendMessage("§6Enjoy your new hat.");
-                        } else {
-                            player.sendMessage("§cYour item stack amount must be 1, otherwise they will be lost.");
-                        }
+                        player.sendMessage("§6Enjoy your new hat.");
                     }
                 } else {
                     sender.sendMessage("§cYou only can put item on your head as a player.");
