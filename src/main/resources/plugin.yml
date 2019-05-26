@@ -12,16 +12,16 @@ commands:
       §c/tpa <player> Send teleport request to player.
   tpyes:
     usage:
-      §c/tpyes Accept teleport request.
+      §cAccept teleport request.
   tpaccept:
     usage:
-      §c/tpaccept Accept teleport request.
+      §cAccept teleport request.
   tpno:
     usage:
-      §c/tpno Deny teleport request.
+      §cDeny teleport request.
   tpdeny:
     usage:
-      §c/tpdeny Deny teleport request.
+      §cDeny teleport request.
   tpcancel:
     usage:
-      §c/tpcancel Cancel teleport request.
+      §cCancel teleport request.
