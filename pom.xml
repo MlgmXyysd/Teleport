@@ -5,13 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>MeowCat</groupId>
-    <artifactId>Teleport</artifactId>
-    <version>1.2.1</version>
+    <artifactId>MeowEssential</artifactId>
+    <version>1.5.0</version>
     <packaging>jar</packaging>
 
-    <name>Teleport</name>
+    <name>MeowEssential</name>
 
-    <description>Teleport</description>
+    <description>MeowEssential</description>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -65,8 +65,15 @@
         <dependency>
             <groupId>org.bukkit</groupId>
             <artifactId>bukkit</artifactId>
-            <version>1.14.1-R0.1-SNAPSHOT</version>
+            <version>LATEST</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.mojang</groupId>
+            <artifactId>authlib</artifactId>
+            <version>1.5.25</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/com/mojang/authlib/1.5.25/authlib-1.5.25.jar</systemPath>
         </dependency>
     </dependencies>
 </project>

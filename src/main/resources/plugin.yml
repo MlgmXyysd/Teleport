@@ -1,10 +1,10 @@
-name: Teleport
+name: MeowEssential
 version: ${project.version}
-main: org.meowcat.teleport.Main
+main: org.meowcat.essential.Main
 api-version: 1.14
-prefix: Teleport
+prefix: MeowEssential
 authors: [MlgmXyysd]
-description: Teleport
+description: MeowEssential
 website: http://www.meowcat.org/
 commands:
   tpa:
@@ -28,3 +28,6 @@ commands:
   hat:
     usage:
       §cPut item on your hat.
+  wladd:
+    usage:
+      §cAdd player to whitelist with offline UUID.
