@@ -202,7 +202,7 @@ public final class Main extends JavaPlugin implements Listener {
                 msg = msg.replaceAll("@all", ChatColor.AQUA + "@all" + ChatColor.RESET);
             } else {
                 for (Player players : onlinePlayers) {
-                    if (msg.endsWith("@ " + players.getName()) || msg.endsWith("@" + players.getName()) || msg.contains("@ " + players.getName() + " ") || msg.contains("@" + players.getName() + " ")) {
+                    if (msg.contains("@ " + players.getName() + " ") || msg.contains("@" + players.getName() + " ")) {
                         msg = msg.replaceAll("@ " + players.getName(), ChatColor.AQUA + "@ " + players.getName() + ChatColor.RESET);
                         msg = msg.replaceAll("@" + players.getName(), ChatColor.AQUA + "@ " + players.getName() + ChatColor.RESET);
                         players.sendMessage(ChatColor.AQUA + "[@] You have been called by " + ChatColor.GREEN + player.getDisplayName() + ChatColor.AQUA + ".");
