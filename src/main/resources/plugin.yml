@@ -31,3 +31,6 @@ commands:
   wladd:
     usage:
       §cAdd player to whitelist with offline UUID.
+  clearentity:
+    usage:
+      §c

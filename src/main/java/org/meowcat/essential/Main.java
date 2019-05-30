@@ -165,6 +165,12 @@ public final class Main extends JavaPlugin implements Listener {
                     sender.sendMessage(ChatColor.AQUA + "Added " + ChatColor.RED + args[0] + ChatColor.AQUA + " to whitelist with offline UUID.");
                 }
                 break;
+            case "clearentity":
+                getServer().dispatchCommand(getConsoleSender(), "kill @e[type=minecraft:zombie]");
+                getServer().dispatchCommand(getConsoleSender(), "kill @e[type=minecraft:skeleton]");
+                getServer().dispatchCommand(getConsoleSender(), "kill @e[type=minecraft:creeper]");
+                getServer().dispatchCommand(getConsoleSender(), "kill @e[type=minecraft:spider]");
+                break;
         }
         return true;
     }
@@ -230,10 +236,10 @@ public final class Main extends JavaPlugin implements Listener {
     }
 
     private void killEntity() {
-        getConsoleSender().sendMessage("/kill @e[type=minecraft:zombie]");
-        getConsoleSender().sendMessage("/kill @e[type=minecraft:skeleton]");
-        getConsoleSender().sendMessage("/kill @e[type=minecraft:creeper]");
-        getConsoleSender().sendMessage("/kill @e[type=minecraft:spider]");
+        getServer().dispatchCommand(getConsoleSender(), "kill @e[type=minecraft:zombie]");
+        getServer().dispatchCommand(getConsoleSender(), "kill @e[type=minecraft:skeleton]");
+        getServer().dispatchCommand(getConsoleSender(), "kill @e[type=minecraft:creeper]");
+        getServer().dispatchCommand(getConsoleSender(), "kill @e[type=minecraft:spider]");
     }
 
     private UUID getOfflineUUID(String playerName) {
