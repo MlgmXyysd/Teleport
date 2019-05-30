@@ -203,8 +203,9 @@ public final class Main extends JavaPlugin implements Listener {
             } else {
                 for (Player players : onlinePlayers) {
                     if (msg.toLowerCase().contains("@ " + players.getName().toLowerCase()) || msg.toLowerCase().contains("@" + players.getName().toLowerCase())) {
-                        msg = msg.replaceAll("@ " + players.getName(), ChatColor.AQUA + "@ " + players.getName() + ChatColor.RESET + " ");
-                        msg = msg.replaceAll("@" + players.getName(), ChatColor.AQUA + "@ " + players.getName() + ChatColor.RESET + " ");
+                        msg = msg.replaceAll("@ " + players.getName().toLowerCase() + " ", ChatColor.AQUA + "@ " + players.getName() + ChatColor.RESET + " ");
+                        msg = msg.replaceAll("@ " + players.getName().toLowerCase(), ChatColor.AQUA + "@ " + players.getName() + ChatColor.RESET + " ");
+                        msg = msg.replaceAll("@" + players.getName().toLowerCase(), ChatColor.AQUA + "@ " + players.getName() + ChatColor.RESET + " ");
                         players.sendMessage(ChatColor.AQUA + "[@] You have been called by " + ChatColor.GREEN + player.getDisplayName() + ChatColor.AQUA + ".");
                         players.playSound(players.getLocation(),
                                 Sound.ENTITY_PLAYER_LEVELUP, 1.0F, 1.0F);
