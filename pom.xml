@@ -6,7 +6,7 @@
 
     <groupId>MeowCat</groupId>
     <artifactId>MeowEssential</artifactId>
-    <version>1.5.0</version>
+    <version>1.9.0</version>
     <packaging>jar</packaging>
 
     <name>MeowEssential</name>
@@ -63,9 +63,15 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.bukkit</groupId>
-            <artifactId>bukkit</artifactId>
+            <groupId>org.spigotmc</groupId>
+            <artifactId>spigot-api</artifactId>
             <version>LATEST</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.8</version>
             <scope>provided</scope>
         </dependency>
         <dependency>

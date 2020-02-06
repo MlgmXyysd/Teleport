@@ -1,0 +1,55 @@
+##############################################
+# Meow Experience Plugin Language File en-us #
+# Create by MeowCat Studio MlgmXyysd.        #
+# @author MeowCat Studio MlgmXyysd           #
+# @lastupdatetime 2019/02/02                 #
+# Copyright (C) 2014-2019 MeowCat Studio     #
+# Powered by MlgmXyysd All Rights Reserved.  #
+##############################################
+
+# Color: use "&" or ""(Alt + 1 + 6 + 7), "&" is recommended.
+language:
+  TPACCEPT_SENDER : "&bPlayer &a%s&b accepted your teleport request."
+  TPACCEPT_RECEIVER : "&bTeleport request accepted."
+  PLAYER_NOTFOUND : "&cPlayer not online or not found."
+  NOT_PENDING_REQUEST : "&cYou do not have a pending request."
+  TPDENY_SENDER : "&cPlayer &a%s&c denied your teleport request."
+  TPDENY_RECEIVER : "&bTeleport request denied."
+  NO_PERMISSION : "&cSorry, you don't have enough permission(s) to do that."
+  PENDING_EXPIRED : "&cPending teleport request expired."
+  TOGGLE_AT_DISABLE : "&bYou have disabled personal AT."
+  TOGGLE_AT_ENABLE : "&bYou have enabled personal AT."
+  TOGGLE_TP_DISABLE : "&bYou have disabled teleport."
+  TOGGLE_TP_ENABLE : "&bYou have enabled teleport."
+  TOGGLE_PO_DISABLE : "&bYou have disabled repeater."
+  TOGGLE_PO_ENABLE : "&bYou have enabled repeater."
+  PLAYER_ONLY : "&cYou only can do that as a player."
+  ACTION_NOT_FOUND : "&cAction not found."
+  HAT_NOTHING : "&cThere's nothing on your head or hand."
+  HAT_ENJOY : "&bEnjoy your new hat."
+  HAT_CLEAR : "&bYour hat has been removed."
+  CLEARENTITY_COMPLETE : "&bListed entity has killed."
+  WHITELIST_ADDED : "&bAdded &a%s&b to whitelist with offline UUID."
+  PLAYER_NOT_SELECTED : "&cYou must select a player to do that."
+  TPA_REQUEST : "&bPlayer &a%s&b has requested to teleport to you."
+  TPA_REQUEST_HERE : "&bPlayer &a%s&b has requested that you teleport to them."
+  TPA_ACCEPT : "&bTo accept this request, type &c%s&b or &c%s&b or &c%s&b."
+  TPA_DENY : "&bTo deny this request, type &c%s&b or &c%s&b or &c%s&b."
+  TPA_EXPIRE : "&bRequest will expired in 60 seconds."
+  TPA_YOUSELF : "&cYou can't teleport to yourself."
+  TPA_SENDED : "&bA teleport request is sent to &a%s&b."
+  TPA_CANCEL : "&bTo cancel this request, type &c%s&b."
+  TPA_DISABLED : "&cPlayer &a%s&c has disabled teleport."
+  TPA_CANCEL_NONE : "&cYou do not have a pending request for this player."
+  TPA_CANCELED_SENDER : "&bPending teleport request cancelled."
+  TPA_CANCELED_RECEIVER : "&cPending teleport request cancelled by sender."
+  CLICK_TO_REPEAT : "&bClick to repeat!"
+  AT_ALL : "&b[@] You have been called by &a%s&b (All players)."
+  AT_PLAYER : "&b[@] You have been called by &a%s&b."
+  AT_DISABLED : "&cPlayer &b%s&c has disabled call notifications."
+  NOT_LATEST : "&ePlugin has a new version, please check it."
+  UPDATE_DISABLED : "&eYou disabled plugin update check, please check it manually."
+  HOME_SET : "&bHome point is set."
+  HOME_NOT_SET : "&cYou must set home point first."
+  HOME_WELCOME : "&bWelcome home, guy."
+  REPEAT : "&b[+1]&r"

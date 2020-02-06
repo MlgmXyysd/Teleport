@@ -1,0 +1,55 @@
+##############################################
+# Meow Experience Plugin Language File en-us #
+# Create by MeowCat Studio MlgmXyysd.        #
+# @author MeowCat Studio MlgmXyysd           #
+# @lastupdatetime 2019/02/02                 #
+# Copyright (C) 2014-2019 MeowCat Studio     #
+# Powered by MlgmXyysd All Rights Reserved.  #
+##############################################
+
+# 颜色支持使用 "&"(推荐) 或 "§"
+language:
+  TPACCEPT_SENDER : "&a%s&b同意了你的传送请求"
+  TPACCEPT_RECEIVER : "&b已接收传送请求"
+  PLAYER_NOTFOUND : "&c未找到此玩家"
+  NOT_PENDING_REQUEST : "&c你没有未同意的传送请求"
+  TPDENY_SENDER : "&a%s&c拒绝了你的传送请求"
+  TPDENY_RECEIVER : "&b已拒绝传送请求."
+  NO_PERMISSION : "&c权限不足"
+  PENDING_EXPIRED : "&c传送请求已过期"
+  TOGGLE_AT_DISABLE : "&b你禁用了@"
+  TOGGLE_AT_ENABLE : "&b你启用了@"
+  TOGGLE_TP_DISABLE : "&b你禁用了传送"
+  TOGGLE_TP_ENABLE : "&b你启用了传送"
+  TOGGLE_PO_DISABLE : "&b你拒绝了复读"
+  TOGGLE_PO_ENABLE : "&b你开始了复读"
+  PLAYER_ONLY : "&c这只能由一个玩家执行"
+  ACTION_NOT_FOUND : "&c未知行为"
+  HAT_NOTHING : "&c你的头上和手上是空的"
+  HAT_ENJOY : "&b看，一顶新的帽子！"
+  HAT_CLEAR : "&b你把帽子拿了下来"
+  CLEARENTITY_COMPLETE : "&b列表内的实体已被清除"
+  WHITELIST_ADDED : "&b已将&a%s&b的离线UUID添加到白名单"
+  PLAYER_NOT_SELECTED : "&c你需要指定一个玩家"
+  TPA_REQUEST : "&a%s&b想要传送到此处"
+  TPA_REQUEST_HERE : "&a%s&b想要你传送到他的位置"
+  TPA_ACCEPT : "&b执行 &c%s&b 或 &c%s&b 或 &c%s&b 以接收"
+  TPA_DENY : "&b执行 &c%s&b 或 &c%s&b 或 &c%s&b 以拒绝"
+  TPA_EXPIRE : "&b这个请求会在60秒后过期"
+  TPA_YOUSELF : "&c你不能传送到你自己"
+  TPA_SENDED : "&b你向&a%s&b发起了一个传送请求"
+  TPA_CANCEL : "&b执行 &c%s&b 以取消请求"
+  TPA_DISABLED : "该玩家关闭了传送"
+  TPA_CANCEL_NONE : "&c你并没有这个玩家的传送请求"
+  TPA_CANCELED_SENDER : "&b传送请求已取消"
+  TPA_CANCELED_RECEIVER : "&c传送发起者取消了这个请求"
+  CLICK_TO_REPEAT : "&b点击以复读"
+  AT_ALL : "&a%s&b@全体成员"
+  AT_PLAYER : "&a%s&b@了你"
+  AT_DISABLED : "&c该玩家关闭了@"
+  NOT_LATEST : "&e插件已更新，请检查"
+  UPDATE_DISABLED : "&e你关闭了检查更新，请手动更新"
+  HOME_SET : "&b已设置家"
+  HOME_NOT_SET : "&c你需要先用/sethome设置家"
+  HOME_WELCOME : "&b欢迎回家"
+  REPEAT : "&b[+1]&r"

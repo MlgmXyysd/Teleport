@@ -1,36 +1,114 @@
 name: MeowEssential
 version: ${project.version}
 main: org.meowcat.essential.Main
-api-version: 1.14
 prefix: MeowEssential
-authors: [MlgmXyysd]
+authors: [MlgmXyysd, MeowCat Studio]
 description: MeowEssential
+load: POSTWORLD
+database: false
 website: http://www.meowcat.org/
 commands:
   tpa:
-    usage:
-      §c/tpa <player> Send teleport request to player.
-  tpyes:
-    usage:
-      §cAccept teleport request.
+    description:
+      Send a teleport request to player.
+  tpahere:
+    description:
+      Send a teleport request to player that teleport to you.
   tpaccept:
-    usage:
-      §cAccept teleport request.
-  tpno:
-    usage:
-      §cDeny teleport request.
+    description:
+      Accept teleport request.
+    aliases: [tpyes, tpy]
   tpdeny:
-    usage:
-      §cDeny teleport request.
+    description:
+      Deny teleport request.
+    aliases: [tpno, tpn]
+  tprandom:
+    description:
+      Random teleport.
+    aliases: [tpr]
   tpcancel:
-    usage:
-      §cCancel teleport request.
+    description:
+      Cancel teleport request.
   hat:
-    usage:
-      §cPut item on your hat.
+    description:
+      Put item on your head.
+  toggle:
+    description:
+      Toggle sections.
   wladd:
-    usage:
-      §cAdd player to whitelist with offline UUID.
-  clearentity:
-    usage:
-      §c
+    description:
+      Add player to whitelist with offline UUID.
+  entityclear:
+    description:
+      Clear entity.
+  home:
+    description:
+      Teleport to home point.
+    aliases: [h]
+  sethome:
+    description:
+      Set home point.
+  back:
+    description:
+      Back to last death point.
+permissions:
+  org.meowcat.essential.admin:
+    description: The permission of all commands from MeowEssential.
+    default: op
+  org.meowcat.essential.update:
+    description: The permission of update notification.
+    default: op
+  org.meowcat.essential.tpa.accept:
+    description: The permission of accept teleport request.
+    default: true
+  org.meowcat.essential.tpa.deny:
+    description: The permission of deny teleport request.
+    default: true
+  org.meowcat.essential.tpa.tpa:
+    description: The permission of send teleport request.
+    default: true
+  org.meowcat.essential.tpa.here:
+    description: The permission of send teleport request.
+    default: true
+  org.meowcat.essential.tpa.cancel:
+    description: The permission of cancel teleport request.
+    default: true
+  org.meowcat.essential.tpa.random:
+    description: The permission of random teleport.
+    default: true
+  org.meowcat.essential.plusone.toggle:
+    description: The permission of toggle repeater section.
+    default: true
+  org.meowcat.essential.tpa.toggle:
+    description: The permission of toggle tleport section.
+    default: true
+  org.meowcat.essential.at.toggle:
+    description: The permission of toggle at section.
+    default: true
+  org.meowcat.essential.hat:
+    description: The permission of put item on head.
+    default: true
+  org.meowcat.essential.clearentity:
+    description: The permission of clear entity.
+    default: op
+  org.meowcat.essential.whitelist.add:
+    description: The permission of add player to whitelist with offline UUID.
+    default: op
+  org.meowcat.essential.at.all:
+    description: The permission of call all players.
+    default: op
+  org.meowcat.essential.at.player:
+    description: The permission of call players.
+    default: true
+  org.meowcat.essential.home.home:
+    description: The permission of teleport to home point.
+    default: true
+  org.meowcat.essential.home.set:
+    description: The permission of set home point.
+    default: true
+  org.meowcat.essential.color.chat:
+    description: The permission of send colorful chat.
+    default: true
+  org.meowcat.essential.color.sign:
+    description: The permission of send colorful sign.
+    default: true

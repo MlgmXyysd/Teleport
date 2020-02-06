@@ -1,7 +1,5 @@
 package org.meowcat.essential.utils;
 
-
-import org.bukkit.Bukkit;
 import org.bukkit.Server;
 
 import java.lang.reflect.Constructor;
@@ -10,7 +8,9 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class NMSUtil {
+import static org.bukkit.Bukkit.getServer;
+
+public class WhiteListUtil {
 
     public static final Class<?> whiteListEntry;
     public static final Method whitelist;
@@ -21,10 +21,10 @@ public class NMSUtil {
     private static final Method handle;
 
     static {
-        playerList = getClass("net.minecraft.server." + getServerVersion() + ".PlayerList");
-        whiteListEntry = getClass("net.minecraft.server." + getServerVersion() + ".WhiteListEntry");
-        craftServer = getClass("org.bukkit.craftbukkit." + getServerVersion() + ".CraftServer");
-        jsonList = getClass("net.minecraft.server." + getServerVersion() + ".JsonList");
+        playerList = getClass("net.minecraft.server." + getServer().getClass().getPackage().getName().substring(getServer().getClass().getPackage().getName().lastIndexOf('.') + 1) + ".PlayerList");
+        whiteListEntry = getClass("net.minecraft.server." + getServer().getClass().getPackage().getName().substring(getServer().getClass().getPackage().getName().lastIndexOf('.') + 1) + ".WhiteListEntry");
+        craftServer = getClass("org.bukkit.craftbukkit." + getServer().getClass().getPackage().getName().substring(getServer().getClass().getPackage().getName().lastIndexOf('.') + 1) + ".CraftServer");
+        jsonList = getClass("net.minecraft.server." + getServer().getClass().getPackage().getName().substring(getServer().getClass().getPackage().getName().lastIndexOf('.') + 1) + ".JsonList");
         handle = getMethod(craftServer, "getHandle");
         whitelist = getMethod(playerList, "getWhitelist");
         add = getMethodIgnoreParam().get(0);
@@ -54,20 +54,17 @@ public class NMSUtil {
         }
     }
 
-
     private static ArrayList<Method> getMethodIgnoreParam() {
         ArrayList<Method> tMethods = new ArrayList<>();
-        for (Method sMethod : NMSUtil.jsonList.getDeclaredMethods()) {
+        for (Method sMethod : WhiteListUtil.jsonList.getDeclaredMethods()) {
             if (sMethod.getName().equals("add")) {
                 tMethods.add(sMethod);
             }
 
         }
-
         if (!tMethods.isEmpty()) {
             return tMethods;
         }
-
         throw new IllegalStateException("Error", new NoSuchMethodException());
     }
 
@@ -81,7 +78,6 @@ public class NMSUtil {
                 return sMethod;
             }
         }
-
         throw new IllegalStateException("Error", new NoSuchMethodException());
     }
 
@@ -100,9 +96,5 @@ public class NMSUtil {
         } catch (ClassNotFoundException exp) {
             throw new IllegalStateException("Error", exp);
         }
-    }
-
-    private static String getServerVersion() {
-        return Bukkit.getServer().getClass().getPackage().getName().substring(Bukkit.getServer().getClass().getPackage().getName().lastIndexOf('.') + 1);
     }
 }
