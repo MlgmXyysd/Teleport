@@ -19,7 +19,7 @@ public class random implements CommandExecutor {
             if (PermissionUtil.hasPermission(sender, PermissionUtil.TPA_RANDOM)) {
                 Player player = (Player) sender;
                 World world = player.getLocation().getWorld();
-                if (!Objects.requireNonNull(Main.plugin.getConfig().getList("configuration.teleport-random.world-list", Collections.EMPTY_LIST)).contains(Objects.requireNonNull(world).getName())) {
+                if (!Main.plugin.getConfig().getStringList("configuration.teleport-random.world-list").contains(Objects.requireNonNull(world).getName())) {
                     sender.sendMessage(LanguageUtil.TPA_RANDOM_NOT_ALLOWED);
                 } else {
                     int playerX = player.getLocation().getBlockX();

@@ -2,12 +2,12 @@
 # Meow Experience Plugin Language File en-us #
 # Create by MeowCat Studio MlgmXyysd.        #
 # @author MeowCat Studio MlgmXyysd           #
-# @lastupdatetime 2019/02/02                 #
+# @lastupdatetime 2019/06/01                 #
 # Copyright (C) 2014-2019 MeowCat Studio     #
 # Powered by MlgmXyysd All Rights Reserved.  #
 ##############################################
 
-# Color: use "&" or ""(Alt + 1 + 6 + 7), "&" is recommended.
+# Color: use "&" or "§"(Alt + 1 + 6 + 7), "&" is recommended.
 language:
   TPACCEPT_SENDER : "&bPlayer &a%s&b accepted your teleport request."
   TPACCEPT_RECEIVER : "&bTeleport request accepted."

@@ -8,13 +8,15 @@ import org.meowcat.essential.utils.LanguageUtil;
 import org.meowcat.essential.utils.LocationUtil;
 import org.meowcat.essential.utils.PermissionUtil;
 
+import static org.meowcat.essential.utils.LocationUtil.TYPE_HOME;
+
 public class set implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player) {
             if (PermissionUtil.hasPermission(sender, PermissionUtil.HOME_SET)) {
                 Player player = (Player) sender;
-                LocationUtil.setHome(player, "home");
+                LocationUtil.setHome(player, TYPE_HOME);
                 player.sendMessage(LanguageUtil.HOME_SET);
             }
         } else {

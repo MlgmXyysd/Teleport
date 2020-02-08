@@ -10,10 +10,10 @@ import org.meowcat.essential.commands.home.*;
 import org.meowcat.essential.commands.toggle;
 import org.meowcat.essential.commands.tpa.*;
 import org.meowcat.essential.commands.whitelist.add;
-import org.meowcat.essential.events.PlayerChatEvent;
-import org.meowcat.essential.events.PlayerDeathEvent;
-import org.meowcat.essential.events.PlayerJoinEvent;
-import org.meowcat.essential.events.SignPlaceEvent;
+import org.meowcat.essential.events.*;
+import org.meowcat.essential.utils.LanguageUtil;
+import org.meowcat.essential.utils.LocationUtil;
+import org.meowcat.essential.utils.PermissionUtil;
 import org.meowcat.essential.utils.PlayerStatusUtil;
 
 import java.io.BufferedReader;
@@ -43,11 +43,14 @@ public final class Main extends JavaPlugin implements Listener {
         long clearDelay = getConfig().getLong("configuration.auto-clear-entity-delay", 60000);
         plugin = this;
         entityList = getConfig().getStringList("configuration.entity-clear-list");
+        new LocationUtil();
+        new LanguageUtil();
 
         getServer().getPluginManager().registerEvents(new SignPlaceEvent(), this);
         getServer().getPluginManager().registerEvents(new PlayerChatEvent(), this);
         getServer().getPluginManager().registerEvents(new PlayerJoinEvent(), this);
         getServer().getPluginManager().registerEvents(new PlayerDeathEvent(), this);
+        getServer().getPluginManager().registerEvents(new EntityExplodeEvent(), this);
 
         Objects.requireNonNull(getCommand("entityclear")).setExecutor(new clearentity());
         Objects.requireNonNull(getCommand("hat")).setExecutor(new hat());

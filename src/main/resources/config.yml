@@ -33,12 +33,12 @@ configuration:
     # Repeater default section <Boolean>
     # Player also can use /toggle to change.
     repeater: false
+  # Color placeholder <String>
+  color-placeholder: "&"
   # Enable auto clear entity with /kill <Boolean>
   auto-clear-entity: false
   # Auto clear entity delay tick (20*seconds) <long>
   auto-clear-entity-delay: 60000
-  # Color placeholder <String>
-  color-placeholder: "&"
   # Entity clear list <String[]>
   # Used for auto & manually clear
   # format: (- "namespace:entityName")
@@ -48,6 +48,47 @@ configuration:
     - "minecraft:skeleton"
     - "minecraft:creeper"
     - "minecraft:spider"
+  # Explode block config
+  explode-block:
+    # Creeper
+    CREEPER:
+      # Enable Creeper explode block <Boolean>
+      enabled: false
+      # Effective world <String[]>
+      # format: (- "worldName")
+      # e.g.:- "world"
+      world:
+        - "world"
+    # TNT
+    TNT:
+      enabled: false
+      world:
+        - "world"
+    # TNT Minecart
+    TNT_MINECART:
+      enabled: false
+      world:
+        - "world"
+    # Wither regen explode
+    WITHER:
+      enabled: false
+      world:
+        - "world"
+    # Wither skull
+    WITHER_SKULL:
+      enabled: false
+      world:
+        - "world"
+    # Ghast fireball
+    FIREBALL:
+      enabled: false
+      world:
+        - "world"
+    # Ender crystal
+    END_CRYSTAL:
+      enabled: false
+      world:
+        - "world"
   # Random teleport range
   teleport-random:
     # range X min <int>
