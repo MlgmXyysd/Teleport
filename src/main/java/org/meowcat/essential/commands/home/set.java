@@ -16,6 +16,7 @@ public class set implements CommandExecutor {
         if (sender instanceof Player) {
             if (PermissionUtil.hasPermission(sender, PermissionUtil.HOME_SET)) {
                 Player player = (Player) sender;
+                player.setBedSpawnLocation(player.getLocation(), true);
                 LocationUtil.setHome(player, TYPE_HOME);
                 player.sendMessage(LanguageUtil.HOME_SET);
             }
