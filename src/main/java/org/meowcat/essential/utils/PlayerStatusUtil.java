@@ -1,7 +1,6 @@
 package org.meowcat.essential.utils;
 
 import com.google.common.base.Charsets;
-import lombok.Data;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -55,7 +54,6 @@ public class PlayerStatusUtil implements TabCompleter {
         return Arrays.stream(players).filter(s -> s.toLowerCase().startsWith(args[0])).collect(Collectors.toList());
     }
 
-    @Data
     public static class PlayerStatus {
         UUID targetPlayer;
         boolean isTpHere;
@@ -63,6 +61,14 @@ public class PlayerStatusUtil implements TabCompleter {
         public PlayerStatus(UUID player, boolean tpHere) {
             targetPlayer = player;
             isTpHere = tpHere;
+        }
+
+        public UUID getTargetPlayer() {
+            return targetPlayer;
+        }
+
+        public boolean isTpHere() {
+            return isTpHere;
         }
     }
 }

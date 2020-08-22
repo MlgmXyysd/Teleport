@@ -23,6 +23,7 @@ import java.util.List;
 import static org.bukkit.Bukkit.getServer;
 
 public class PlayerChatEvent implements Listener {
+    @SuppressWarnings("deprecation")
     @EventHandler
     public void playerChatEvent(AsyncPlayerChatEvent event) {
         String msg = event.getMessage();

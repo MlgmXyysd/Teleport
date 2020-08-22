@@ -8,6 +8,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.meowcat.essential.Main;
 import org.meowcat.essential.utils.LanguageUtil;
+import org.meowcat.essential.utils.LocationUtil;
 import org.meowcat.essential.utils.PermissionUtil;
 
 import java.util.*;
@@ -33,6 +34,9 @@ public class random implements CommandExecutor {
                         } else {
                             playerY++;
                         }
+                    }
+                    if (PermissionUtil.hasPermission(player, PermissionUtil.HOME_BACK)) {
+                        LocationUtil.setHome(player, "back");
                     }
                     player.teleport(new Location(world, playerX, playerY, playerZ, player.getLocation().getYaw(), player.getLocation().getPitch()));
                     player.sendMessage(LanguageUtil.HOME_BACK);

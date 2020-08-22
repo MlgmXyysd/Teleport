@@ -5,6 +5,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.meowcat.essential.utils.LanguageUtil;
+import org.meowcat.essential.utils.LocationUtil;
 import org.meowcat.essential.utils.PermissionUtil;
 import org.meowcat.essential.utils.PlayerStatusUtil;
 
@@ -21,8 +22,14 @@ public class accept implements CommandExecutor {
                 Player status = getPlayer(PlayerStatusUtil.playerStatus.get(getOfflineUUID(sender.getName())).getTargetPlayer());
                 if (Objects.requireNonNull(status).isOnline()) {
                     if (PlayerStatusUtil.playerStatus.get(getOfflineUUID(sender.getName())).isTpHere()) {
+                        if (PermissionUtil.hasPermission(sender, PermissionUtil.HOME_BACK)) {
+                            LocationUtil.setHome((Player) sender, "back");
+                        }
                         ((Player) sender).teleport(status.getLocation());
                     } else {
+                        if (PermissionUtil.hasPermission(status, PermissionUtil.HOME_BACK)) {
+                            LocationUtil.setHome(status, "back");
+                        }
                         status.teleport(((Player) sender).getLocation());
                     }
                     status.sendMessage(String.format(LanguageUtil.TPACCEPT_SENDER, sender.getName()));

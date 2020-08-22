@@ -43,6 +43,9 @@ public class LocationUtil {
     public static void teleportHome(Player player, String type) {
         UUID playerUUID = PlayerStatusUtil.getOfflineUUID(player.getDisplayName());
         Location home = new Location(Bukkit.getWorld(Objects.requireNonNull(homeYaml.getString(type + "." + playerUUID.toString() + ".World"))), homeYaml.getDouble(type + "." + playerUUID.toString() + ".X"), homeYaml.getDouble(type + "." + playerUUID.toString() + ".Y"), homeYaml.getDouble(type + "." + playerUUID.toString() + ".Z"), (float) homeYaml.getLong(type + "." + playerUUID.toString() + ".Yaw"), (float) homeYaml.getLong(type + "." + playerUUID.toString() + ".Pitch"));
+        if (PermissionUtil.hasPermission(player, PermissionUtil.HOME_BACK)) {
+            LocationUtil.setHome(player, "back");
+        }
         player.teleport(home);
     }
 
