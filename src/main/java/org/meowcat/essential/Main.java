@@ -7,6 +7,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 import org.meowcat.essential.commands.clearentity;
 import org.meowcat.essential.commands.hat;
 import org.meowcat.essential.commands.home.*;
+import org.meowcat.essential.commands.skin.Change;
 import org.meowcat.essential.commands.toggle;
 import org.meowcat.essential.commands.tpa.*;
 import org.meowcat.essential.commands.whitelist.add;
@@ -71,6 +72,8 @@ public final class Main extends JavaPlugin implements Listener {
         Objects.requireNonNull(getCommand("tpcancel")).setTabCompleter(new PlayerStatusUtil());
         Objects.requireNonNull(getCommand("wladd")).setTabCompleter(new PlayerStatusUtil());
         Objects.requireNonNull(getCommand("toggle")).setTabCompleter(new toggle());
+
+        Objects.requireNonNull(getCommand("skinchange")).setExecutor(new Change());
 
         getConsoleSender().sendMessage("[MeowEssential] Meow Essential by MeowCat Studio");
         getConsoleSender().sendMessage("[MeowEssential] Official Website http://www.meowcat.org/");

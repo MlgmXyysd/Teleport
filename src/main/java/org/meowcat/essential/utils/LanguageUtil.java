@@ -58,6 +58,7 @@ public class LanguageUtil {
     public static String HOME_BACK;
     public static String HOME_BACK_NOT_SET;
     public static String REPEAT;
+    public static String SKIN_HASH_NOT_SELECTED;
 
     public LanguageUtil() {
         Main.plugin.saveResource("language/" + LANGUAGE + ".yml", false);
@@ -108,6 +109,7 @@ public class LanguageUtil {
         HOME_BACK = getLanguage("language.HOME_BACK", "&bPay attention to your security.");
         HOME_BACK_NOT_SET = getLanguage("language.HOME_BACK_NOT_SET", "&cYou don't have a back point.");
         REPEAT = getLanguage("language.REPEAT", "&b[+1]&r");
+        REPEAT = getLanguage("language.SKIN_HASH_NOT_SELECTED", "&cYou must to specify a skin hash in User Center.");
     }
     
     private String getLanguage(String path, String def) {

@@ -53,3 +53,4 @@ language:
   HOME_NOT_SET : "&cYou must set home point first."
   HOME_WELCOME : "&bWelcome home, guy."
   REPEAT : "&b[+1]&r"
+  SKIN_HASH_NOT_SELECTED : "&cYou must to specify a skin hash in User Center."

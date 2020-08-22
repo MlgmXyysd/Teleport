@@ -2,8 +2,8 @@
 # Meow Experience Plugin Configuration File  #
 # Create by MeowCat Studio MlgmXyysd.        #
 # @author MeowCat Studio MlgmXyysd           #
-# @lastupdatetime 2019/05/31                 #
-# Copyright (C) 2014-2019 MeowCat Studio     #
+# @lastupdatetime 2020/08/21                 #
+# Copyright (C) 2013-2020 MeowCat Studio     #
 # Powered by MlgmXyysd All Rights Reserved.  #
 ##############################################
 
@@ -35,6 +35,8 @@ configuration:
     repeater: false
   # Color placeholder <String>
   color-placeholder: "&"
+  # Skin server textures root <String>
+  skin-root: "http://localhost/textures/"
   # Enable auto clear entity with /kill <Boolean>
   auto-clear-entity: false
   # Auto clear entity delay tick (20*seconds) <long>

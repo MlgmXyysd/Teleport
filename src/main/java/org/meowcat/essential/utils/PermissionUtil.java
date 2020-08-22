@@ -1,6 +1,5 @@
 package org.meowcat.essential.utils;
 
-import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.meowcat.essential.Main;
 
@@ -27,7 +26,8 @@ public class PermissionUtil {
     public static String HOME_BACK = "home.back";
     public static String COLOR_CHAT = "color.chat";
     public static String COLOR_SIGN = "color.sign";
-    private static String packageName = "org.meowcat.essential";
+    public static String SKIN_CHANGE = "skin.change";
+    private static final String packageName = "org.meowcat.essential";
 
     public static boolean hasPermission(CommandSender player, String permission) {
         if (Main.plugin.getConfig().getBoolean("configuration.permissions-enabled", true)) {

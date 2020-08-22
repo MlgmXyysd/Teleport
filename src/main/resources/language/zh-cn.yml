@@ -53,3 +53,4 @@ language:
   HOME_NOT_SET : "&c你需要先用/sethome设置家"
   HOME_WELCOME : "&b欢迎回家"
   REPEAT : "&b[+1]&r"
+  SKIN_HASH_NOT_SELECTED : "&c你需要指定一个在用户中心的皮肤hash"

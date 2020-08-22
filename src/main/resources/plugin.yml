@@ -2,6 +2,7 @@ name: MeowEssential
 version: ${project.version}
 main: org.meowcat.essential.Main
 prefix: MeowEssential
+api-version: 1.13
 authors: [MlgmXyysd, MeowCat Studio]
 description: MeowEssential
 load: POSTWORLD
@@ -51,6 +52,10 @@ commands:
   back:
     description:
       Back to last death point.
+  skinchange:
+    description:
+      Change the user skin with specified skin hash.
+    aliases: [sc]
 permissions:
   org.meowcat.essential.admin:
     description: The permission of all commands from MeowEssential.
@@ -111,4 +116,7 @@ permissions:
     default: true
   org.meowcat.essential.color.sign:
     description: The permission of send colorful sign.
+    default: true
+  org.meowcat.essential.skin.change:
+    description: The permission of change skin.
     default: true
