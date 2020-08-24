@@ -41,6 +41,8 @@ configuration:
   auto-clear-entity: false
   # Auto clear entity delay tick (20*seconds) <long>
   auto-clear-entity-delay: 60000
+  # Enable Rotten flesh to leather <Boolean>
+  rotten-to-leather: false
   # Entity clear list <String[]>
   # Used for auto & manually clear
   # format: (- "namespace:entityName")

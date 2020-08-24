@@ -1,12 +1,20 @@
 package org.meowcat.essential;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
 import org.bukkit.event.Listener;
+import org.bukkit.inventory.FurnaceRecipe;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.Recipe;
+import org.bukkit.inventory.RecipeChoice;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.meowcat.essential.commands.clearentity;
 import org.meowcat.essential.commands.hat;
-import org.meowcat.essential.commands.home.*;
+import org.meowcat.essential.commands.home.back;
+import org.meowcat.essential.commands.home.home;
+import org.meowcat.essential.commands.home.set;
 import org.meowcat.essential.commands.skin.Change;
 import org.meowcat.essential.commands.toggle;
 import org.meowcat.essential.commands.tpa.*;
@@ -14,7 +22,6 @@ import org.meowcat.essential.commands.whitelist.add;
 import org.meowcat.essential.events.*;
 import org.meowcat.essential.utils.LanguageUtil;
 import org.meowcat.essential.utils.LocationUtil;
-import org.meowcat.essential.utils.PermissionUtil;
 import org.meowcat.essential.utils.PlayerStatusUtil;
 
 import java.io.BufferedReader;
@@ -38,6 +45,7 @@ public final class Main extends JavaPlugin implements Listener {
         }
     }
 
+    @SuppressWarnings("InstantiationOfUtilityClass")
     @Override
     public void onEnable() {
         saveDefaultConfig();
@@ -74,6 +82,11 @@ public final class Main extends JavaPlugin implements Listener {
         Objects.requireNonNull(getCommand("toggle")).setTabCompleter(new toggle());
 
         Objects.requireNonNull(getCommand("skinchange")).setExecutor(new Change());
+
+        if (getConfig().getBoolean("configuration.rotten-to-leather", false)) {
+            FurnaceRecipe recipe = new FurnaceRecipe(new NamespacedKey(plugin, NamespacedKey.MINECRAFT), new ItemStack(Material.LEATHER), Material.ROTTEN_FLESH, (float) 0.35, 100);
+            getServer().addRecipe(recipe);
+        }
 
         getConsoleSender().sendMessage("[MeowEssential] Meow Essential by MeowCat Studio");
         getConsoleSender().sendMessage("[MeowEssential] Official Website http://www.meowcat.org/");
