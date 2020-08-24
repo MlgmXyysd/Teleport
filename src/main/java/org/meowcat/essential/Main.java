@@ -15,6 +15,7 @@ import org.meowcat.essential.commands.hat;
 import org.meowcat.essential.commands.home.back;
 import org.meowcat.essential.commands.home.home;
 import org.meowcat.essential.commands.home.set;
+import org.meowcat.essential.commands.home.spawnpoint;
 import org.meowcat.essential.commands.skin.Change;
 import org.meowcat.essential.commands.toggle;
 import org.meowcat.essential.commands.tpa.*;
@@ -73,6 +74,7 @@ public final class Main extends JavaPlugin implements Listener {
         Objects.requireNonNull(getCommand("wladd")).setExecutor(new add());
         Objects.requireNonNull(getCommand("home")).setExecutor(new home());
         Objects.requireNonNull(getCommand("sethome")).setExecutor(new set());
+        Objects.requireNonNull(getCommand("setspawnpoint")).setExecutor(new spawnpoint());
         Objects.requireNonNull(getCommand("back")).setExecutor(new back());
 
         Objects.requireNonNull(getCommand("tpa")).setTabCompleter(new PlayerStatusUtil());

@@ -22,15 +22,21 @@ public class PermissionUtil {
     public static String AT_PLAYER = "at.player";
     public static String UPDATE = "update";
     public static String HOME_HOME = "home.home";
+    public static String HOME_SPAWN = "home.spawn";
     public static String HOME_SET = "home.set";
     public static String HOME_BACK = "home.back";
     public static String COLOR_CHAT = "color.chat";
     public static String COLOR_SIGN = "color.sign";
     public static String SKIN_CHANGE = "skin.change";
+    public static String COMMAND_PERFORM = "command.perform";
     private static final String packageName = "org.meowcat.essential";
 
     public static boolean hasPermission(CommandSender player, String permission) {
-        if (Main.plugin.getConfig().getBoolean("configuration.permissions-enabled", true)) {
+        return hasPermission(player, permission, false);
+    }
+
+    public static boolean hasPermission(CommandSender player, String permission, boolean force) {
+        if (Main.plugin.getConfig().getBoolean("configuration.permissions-enabled", true) || force) {
             if (player.hasPermission(packageName + "." + permission) || player.hasPermission(packageName + "." + ADMIN)) {
                 return true;
             } else {

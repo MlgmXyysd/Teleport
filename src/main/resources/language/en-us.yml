@@ -54,3 +54,4 @@ language:
   HOME_WELCOME : "&bWelcome home, guy."
   REPEAT : "&b[+1]&r"
   SKIN_HASH_NOT_SELECTED : "&cYou must to specify a skin hash in User Center."
+  SPAWN_SET: "&bSpawn point is set."

@@ -53,6 +53,7 @@ public class LanguageUtil {
     public static String NOT_LATEST;
     public static String UPDATE_DISABLED;
     public static String HOME_SET;
+    public static String SPAWN_SET;
     public static String HOME_NOT_SET;
     public static String HOME_WELCOME;
     public static String HOME_BACK;
@@ -109,7 +110,8 @@ public class LanguageUtil {
         HOME_BACK = getLanguage("language.HOME_BACK", "&bPay attention to your security.");
         HOME_BACK_NOT_SET = getLanguage("language.HOME_BACK_NOT_SET", "&cYou don't have a back point.");
         REPEAT = getLanguage("language.REPEAT", "&b[+1]&r");
-        REPEAT = getLanguage("language.SKIN_HASH_NOT_SELECTED", "&cYou must to specify a skin hash in User Center.");
+        SKIN_HASH_NOT_SELECTED = getLanguage("language.SKIN_HASH_NOT_SELECTED", "&cYou must to specify a skin hash in User Center.");
+        SPAWN_SET = getLanguage("language.SPAWN_SET", "&bSpawn point is set.");
     }
     
     private String getLanguage(String path, String def) {

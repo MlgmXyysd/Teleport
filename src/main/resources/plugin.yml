@@ -56,6 +56,9 @@ commands:
     description:
       Change the user skin with specified skin hash.
     aliases: [sc]
+  setspawnpoint:
+    description:
+      Set the spawn point.
 permissions:
   org.meowcat.essential.admin:
     description: The permission of all commands from MeowEssential.
@@ -120,3 +123,9 @@ permissions:
   org.meowcat.essential.skin.change:
     description: The permission of change skin.
     default: true
+  org.meowcat.essential.home.spawn:
+    description: The permission of set spawn point.
+    default: true
+  org.meowcat.essential.command.perform:
+    description: The permission of perform command.
+    default: op
