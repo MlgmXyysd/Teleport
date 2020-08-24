@@ -16,6 +16,7 @@ import org.meowcat.essential.commands.home.back;
 import org.meowcat.essential.commands.home.home;
 import org.meowcat.essential.commands.home.set;
 import org.meowcat.essential.commands.home.spawnpoint;
+import org.meowcat.essential.commands.perform;
 import org.meowcat.essential.commands.skin.Change;
 import org.meowcat.essential.commands.toggle;
 import org.meowcat.essential.commands.tpa.*;
@@ -76,6 +77,8 @@ public final class Main extends JavaPlugin implements Listener {
         Objects.requireNonNull(getCommand("sethome")).setExecutor(new set());
         Objects.requireNonNull(getCommand("setspawnpoint")).setExecutor(new spawnpoint());
         Objects.requireNonNull(getCommand("back")).setExecutor(new back());
+        Objects.requireNonNull(getCommand("perform")).setExecutor(new perform());
+        Objects.requireNonNull(getCommand("skinchange")).setExecutor(new Change());
 
         Objects.requireNonNull(getCommand("tpa")).setTabCompleter(new PlayerStatusUtil());
         Objects.requireNonNull(getCommand("tpahere")).setTabCompleter(new PlayerStatusUtil());
@@ -83,7 +86,6 @@ public final class Main extends JavaPlugin implements Listener {
         Objects.requireNonNull(getCommand("wladd")).setTabCompleter(new PlayerStatusUtil());
         Objects.requireNonNull(getCommand("toggle")).setTabCompleter(new toggle());
 
-        Objects.requireNonNull(getCommand("skinchange")).setExecutor(new Change());
 
         if (getConfig().getBoolean("configuration.rotten-to-leather", false)) {
             FurnaceRecipe recipe = new FurnaceRecipe(new NamespacedKey(plugin, NamespacedKey.MINECRAFT), new ItemStack(Material.LEATHER), Material.ROTTEN_FLESH, (float) 0.35, 100);
