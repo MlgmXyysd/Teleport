@@ -16,7 +16,7 @@ public class suicide implements CommandExecutor {
                 Player player = (Player) sender;
                 player.setHealth(0);
                 sender.sendMessage(LanguageUtil.PERFORM_SUICIDE);
-                Main.plugin.getServer().broadcastMessage(LanguageUtil.SUICIDE_BROADCAST);
+                Main.plugin.getServer().broadcastMessage(String.format(LanguageUtil.SUICIDE_BROADCAST, player.getName()));
             }
         } else {
             sender.sendMessage(LanguageUtil.PLAYER_ONLY);
