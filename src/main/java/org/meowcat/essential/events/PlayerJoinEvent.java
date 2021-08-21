@@ -1,6 +1,7 @@
 package org.meowcat.essential.events;
 
 import org.bukkit.ChatColor;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -12,6 +13,7 @@ import org.meowcat.essential.utils.PlayerStatusUtil;
 public class PlayerJoinEvent implements Listener {
     @EventHandler
     public void playerJoinEvent(org.bukkit.event.player.PlayerJoinEvent event) {
+        FileConfiguration config = Main.plugin.getConfig();
         Player player = event.getPlayer();
         if (!PlayerStatusUtil.canTeleport.containsKey(PlayerStatusUtil.getOfflineUUID(player.getDisplayName()))) {
             PlayerStatusUtil.canTeleport.put(PlayerStatusUtil.getOfflineUUID(player.getDisplayName()), Main.plugin.getConfig().getBoolean("configuration.default-section.teleport", true));
@@ -31,6 +33,11 @@ public class PlayerJoinEvent implements Listener {
                 } else {
                     player.sendMessage(ChatColor.GOLD + "[MeowEssential] " + LanguageUtil.UPDATE_DISABLED);
                 }
+            }
+        }
+        if (config.getBoolean("configuration.player-list-world-enabled", false)) {
+            if (player.isOnline()) {
+                player.setPlayerListName(String.format(config.getString("configuration.player-list-world-identification", "[%s]"), player.getWorld().getName()));
             }
         }
     }

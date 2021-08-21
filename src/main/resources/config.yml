@@ -2,8 +2,8 @@
 # Meow Experience Plugin Configuration File  #
 # Create by MeowCat Studio MlgmXyysd.        #
 # @author MeowCat Studio MlgmXyysd           #
-# @lastupdatetime 2020/08/21                 #
-# Copyright (C) 2013-2020 MeowCat Studio     #
+# @lastupdatetime 2021/08/21                 #
+# Copyright (C) 2013-2021 MeowCat Studio     #
 # Powered by MlgmXyysd All Rights Reserved.  #
 ##############################################
 
@@ -22,6 +22,11 @@ configuration:
   # Enable plugin command permissions <Boolean>
   # Set it to false and make all command can execute without permissions.
   permissions-enabled: true
+  # Enable world name display in player list <Boolean>
+  player-list-world-enabled: true
+  # World name identification <String>
+  # %s is the world name, color placeholder is allowed
+  player-list-world-identification: "[%s]"
   # Default section
   default-section:
     # Teleport default section <Boolean>
