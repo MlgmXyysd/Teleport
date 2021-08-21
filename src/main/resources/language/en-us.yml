@@ -55,3 +55,6 @@ language:
   REPEAT : "&b[+1]&r"
   SKIN_HASH_NOT_SELECTED : "&cYou must to specify a skin hash in User Center."
   SPAWN_SET: "&bSpawn point is set."
+  TPALL_CONFIRM: "&bType \"/tpall confirm\" to confirm."
+  PERFORM_SUICIDE: "&bGoodbye cruel world..."
+  SUICIDE_BROADCAST: "&f%s took their own life."

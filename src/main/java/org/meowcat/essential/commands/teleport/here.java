@@ -1,4 +1,4 @@
-package org.meowcat.essential.commands.tpa;
+package org.meowcat.essential.commands.teleport;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -9,13 +9,13 @@ import org.meowcat.essential.utils.PermissionUtil;
 import org.meowcat.essential.utils.PlayerStatusUtil;
 
 import static org.bukkit.Bukkit.*;
-import static org.meowcat.essential.commands.tpa.tpa.*;
+import static org.meowcat.essential.commands.teleport.tpa.*;
 
 public class here implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player) {
-            if (PermissionUtil.hasPermission(sender, PermissionUtil.TPA_HERE)) {
+            if (PermissionUtil.hasPermission(sender, PermissionUtil.TELEPORT_TPAHERE)) {
                 if (args.length == 0) {
                     sender.sendMessage(LanguageUtil.PLAYER_NOT_SELECTED);
                 } else {

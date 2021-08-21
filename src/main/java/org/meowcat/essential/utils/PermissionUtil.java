@@ -6,12 +6,13 @@ import org.meowcat.essential.Main;
 @SuppressWarnings({"FieldCanBeLocal", "WeakerAccess"})
 public class PermissionUtil {
     public static String ADMIN = "admin";
-    public static String TPA_ACCEPT = "tpa.accept";
-    public static String TPA_DENY = "tpa.deny";
-    public static String TPA_TPA = "tpa.tpa";
-    public static String TPA_HERE = "tpa.here";
-    public static String TPA_CANCEL = "tpa.cancel";
-    public static String TPA_RANDOM = "tpa.random";
+    public static String TELEPORT_ACCEPT = "teleport.accept";
+    public static String TELEPORT_DENY = "teleport.deny";
+    public static String TELEPORT_TPA = "teleport.tpa";
+    public static String TELEPORT_TPAHERE = "teleport.tpahere";
+    public static String TELEPORT_CANCEL = "teleport.cancel";
+    public static String TELEPORT_RANDOM = "teleport.random";
+    public static String TELEPORT_ALL = "teleport.all";
     public static String TOGGLE_PO = "plusone.toggle";
     public static String TOGGLE_TP = "tpa.toggle";
     public static String TOGGLE_AT = "at.toggle";
@@ -29,6 +30,7 @@ public class PermissionUtil {
     public static String COLOR_SIGN = "color.sign";
     public static String SKIN_CHANGE = "skin.change";
     public static String COMMAND_PERFORM = "command.perform";
+    public static String PERFORM_SUICIDE = "suicide";
     private static final String packageName = "org.meowcat.essential";
 
     public static boolean hasPermission(CommandSender player, String permission) {

@@ -1,4 +1,4 @@
-package org.meowcat.essential.commands.tpa;
+package org.meowcat.essential.commands.teleport;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -17,7 +17,7 @@ import static org.meowcat.essential.utils.PlayerStatusUtil.getOfflineUUID;
 public class accept implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (PermissionUtil.hasPermission(sender, PermissionUtil.TPA_ACCEPT)) {
+        if (PermissionUtil.hasPermission(sender, PermissionUtil.TELEPORT_ACCEPT)) {
             if (PlayerStatusUtil.playerStatus.containsKey(getOfflineUUID(sender.getName()))) {
                 Player status = getPlayer(PlayerStatusUtil.playerStatus.get(getOfflineUUID(sender.getName())).getTargetPlayer());
                 if (Objects.requireNonNull(status).isOnline()) {

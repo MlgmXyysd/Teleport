@@ -55,3 +55,5 @@ language:
   REPEAT : "&b[+1]&r"
   SKIN_HASH_NOT_SELECTED : "&c你需要指定一个在用户中心的皮肤hash"
   SPAWN_SET: "&b已设置出生点"
+  PERFORM_SUICIDE: "&b永别了，悲惨的世界..."
+  SUICIDE_BROADCAST: "&f%s 自杀了"

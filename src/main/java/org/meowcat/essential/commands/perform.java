@@ -8,6 +8,7 @@ import org.meowcat.essential.utils.LanguageUtil;
 import org.meowcat.essential.utils.PermissionUtil;
 
 import static org.bukkit.Bukkit.getPlayer;
+import static org.meowcat.essential.utils.PlayerStatusUtil.getOfflineUUID;
 
 public class perform implements CommandExecutor {
     @Override
@@ -17,13 +18,11 @@ public class perform implements CommandExecutor {
                 sender.sendMessage(LanguageUtil.PLAYER_NOT_SELECTED);
             } else {
                 if (args.length != 1) {
-                    Player player = getPlayer(args[1]);
+                    Player player = getPlayer(getOfflineUUID(args[0]));
                     if (player != null && player.isOnline()) {
                         StringBuilder sb = new StringBuilder();
                         for (int i = 0; i < args.length; i++) {
-                            if (i < 2) {
-                                // [0] "perform"
-                                // [1] player
+                            if (i < 1) {
                                 continue;
                             }
                             sb.append(args[i]);

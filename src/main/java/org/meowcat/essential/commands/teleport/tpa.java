@@ -1,4 +1,4 @@
-package org.meowcat.essential.commands.tpa;
+package org.meowcat.essential.commands.teleport;
 
 import org.bukkit.Sound;
 import org.bukkit.command.Command;
@@ -22,7 +22,7 @@ public class tpa implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player) {
-            if (PermissionUtil.hasPermission(sender, PermissionUtil.TPA_TPA)) {
+            if (PermissionUtil.hasPermission(sender, PermissionUtil.TELEPORT_TPA)) {
                 if (args.length == 0) {
                     sender.sendMessage(LanguageUtil.PLAYER_NOT_SELECTED);
                 } else {

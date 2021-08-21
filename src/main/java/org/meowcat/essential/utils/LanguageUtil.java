@@ -60,6 +60,9 @@ public class LanguageUtil {
     public static String HOME_BACK_NOT_SET;
     public static String REPEAT;
     public static String SKIN_HASH_NOT_SELECTED;
+    public static String TPALL_CONFIRM;
+    public static String PERFORM_SUICIDE;
+    public static String SUICIDE_BROADCAST;
 
     public LanguageUtil() {
         Main.plugin.saveResource("language/" + LANGUAGE + ".yml", false);
@@ -112,6 +115,9 @@ public class LanguageUtil {
         REPEAT = getLanguage("language.REPEAT", "&b[+1]&r");
         SKIN_HASH_NOT_SELECTED = getLanguage("language.SKIN_HASH_NOT_SELECTED", "&cYou must to specify a skin hash in User Center.");
         SPAWN_SET = getLanguage("language.SPAWN_SET", "&bSpawn point is set.");
+        TPALL_CONFIRM = getLanguage("language.TPALL_CONFIRM", "&bType \"/tpall confirm\" to confirm.");
+        PERFORM_SUICIDE = getLanguage("language.PERFORM_SUICIDE", "&bGoodbye cruel world...");
+        SUICIDE_BROADCAST = getLanguage("language.SUICIDE_BROADCAST", "&f%s took their own life.");
     }
     
     private String getLanguage(String path, String def) {

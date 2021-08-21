@@ -1,4 +1,4 @@
-package org.meowcat.essential.commands.tpa;
+package org.meowcat.essential.commands.teleport;
 
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -17,7 +17,7 @@ public class random implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player) {
-            if (PermissionUtil.hasPermission(sender, PermissionUtil.TPA_RANDOM)) {
+            if (PermissionUtil.hasPermission(sender, PermissionUtil.TELEPORT_RANDOM)) {
                 Player player = (Player) sender;
                 World world = player.getLocation().getWorld();
                 if (!Main.plugin.getConfig().getStringList("configuration.teleport-random.world-list").contains(Objects.requireNonNull(world).getName())) {
@@ -30,7 +30,11 @@ public class random implements CommandExecutor {
                     playerZ += getRandomInt(Main.plugin.getConfig().getInt("configuration.teleport-random.Z-min", -500), Main.plugin.getConfig().getInt("configuration.teleport-random.Z-max", 500));
                     while (true) {
                         if (world.getBlockAt(playerX, playerY, playerZ).isEmpty() && world.getBlockAt(playerX, playerY + 1, playerZ).isEmpty()) {
-                            break;
+                            if (world.getBlockAt(playerX, playerY - 1, playerZ).isEmpty()) {
+                                playerY--;
+                            } else {
+                                break;
+                            }
                         } else {
                             playerY++;
                         }

@@ -62,6 +62,12 @@ commands:
   perform:
     description:
       Perform command to specified online player.
+  tpall:
+    description:
+      Teleport all online player to you.
+  suicide:
+    description:
+      Perform suicide. Goodbye world.
 permissions:
   org.meowcat.essential.admin:
     description: The permission of all commands from MeowEssential.
@@ -69,29 +75,32 @@ permissions:
   org.meowcat.essential.update:
     description: The permission of update notification.
     default: op
-  org.meowcat.essential.tpa.accept:
+  org.meowcat.essential.teleport.accept:
     description: The permission of accept teleport request.
     default: true
-  org.meowcat.essential.tpa.deny:
+  org.meowcat.essential.teleport.deny:
     description: The permission of deny teleport request.
     default: true
-  org.meowcat.essential.tpa.tpa:
+  org.meowcat.essential.teleport.tpa:
     description: The permission of send teleport request.
     default: true
-  org.meowcat.essential.tpa.here:
+  org.meowcat.essential.teleport.tpahere:
     description: The permission of send teleport request.
     default: true
-  org.meowcat.essential.tpa.cancel:
+  org.meowcat.essential.teleport.cancel:
     description: The permission of cancel teleport request.
     default: true
-  org.meowcat.essential.tpa.random:
+  org.meowcat.essential.teleport.random:
     description: The permission of random teleport.
     default: true
+  org.meowcat.essential.teleport.all:
+    description: The permission of teleport all.
+    default: op
   org.meowcat.essential.plusone.toggle:
     description: The permission of toggle repeater section.
     default: true
   org.meowcat.essential.tpa.toggle:
-    description: The permission of toggle tleport section.
+    description: The permission of toggle teleport section.
     default: true
   org.meowcat.essential.at.toggle:
     description: The permission of toggle at section.
@@ -132,3 +141,6 @@ permissions:
   org.meowcat.essential.command.perform:
     description: The permission of perform command.
     default: op
+  org.meowcat.essential.suicide:
+    description: The permission of suicide.
+    default: true
