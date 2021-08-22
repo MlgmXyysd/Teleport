@@ -37,7 +37,8 @@ public class PlayerJoinEvent implements Listener {
         }
         if (config.getBoolean("configuration.player-list-world-enabled", false)) {
             if (player.isOnline()) {
-                player.setPlayerListName(String.format(config.getString("configuration.player-list-world-identification", "[%s]"), player.getWorld().getName()));
+                // TODO: custom world name
+                player.setPlayerListName(String.format(config.getString("configuration.player-list-world-identification", "[%s]"), player.getWorld().getName()) + player.getName());
             }
         }
     }
