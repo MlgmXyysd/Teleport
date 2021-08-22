@@ -57,6 +57,7 @@ public final class Main extends JavaPlugin implements Listener {
         getServer().getPluginManager().registerEvents(new PlayerJoinEvent(), this);
         getServer().getPluginManager().registerEvents(new PlayerDeathEvent(), this);
         getServer().getPluginManager().registerEvents(new EntityExplodeEvent(), this);
+        getServer().getPluginManager().registerEvents(new PlayerChangedWorldEvent(), this);
 
         Objects.requireNonNull(getCommand("entityclear")).setExecutor(new clearentity());
         Objects.requireNonNull(getCommand("hat")).setExecutor(new hat());
